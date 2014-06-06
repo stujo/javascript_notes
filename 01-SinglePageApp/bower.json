@@ -1,4 +1,7 @@
 {
-  "directory": "app/vendor"
+  "name": "StujoSPA",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "~3.1.1"
+  }
 }
-
