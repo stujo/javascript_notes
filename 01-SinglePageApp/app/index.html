@@ -26,6 +26,7 @@
     <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <link href="./css/01_single_page_app.css" media="all" rel="stylesheet"/>
+    <link href="./css/sticky_footer.css" media="all" rel="stylesheet"/>
     <script src="./javascript/01_single_page_app.js"></script>
 </head>
 <body>
@@ -49,10 +50,26 @@
 </div>
 <div class="container">
 
-    <H1>Hello World</H1>
+    <H1 class="page-header">Hello World</H1>
 
-    <p>You have been greeted!</p>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Notes
+        </div>
+        <div class="panel-body">
+            <p>Used bower to install bootstrap and jQuery</p>
 
+            <p>Used .bowerrc to specify app/vendor as the path for resources</p>
+
+            <p>bootstrap 3.1.1 with jQuery 2.1.1 dependency</p>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div class="container">
+        <p class="text-muted"><a href="https://github.com/stujo/javascript_notes/issues">Got a bug or a suggestion for an improvement?</a></p>
+    </div>
 </div>
 
 </body>
