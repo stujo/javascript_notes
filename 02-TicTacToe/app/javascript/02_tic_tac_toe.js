@@ -4,11 +4,15 @@ $(function () {
 
     function install_sounds() {
       // Sounds from: http://www.soundjay.com/beep-sounds-1.html
-      $('<audio id="ttt_sounds"><source src="sounds/beep-03.mp3" type="audio/mpeg"></audio>').appendTo('#ttt_board');
+      $('<audio id="ttt_sounds_buzz"><source src="sounds/beep-03.mp3" type="audio/mpeg"></audio>').appendTo('#ttt_board');
+      $('<audio id="ttt_sounds_yeay"><source src="sounds/bart_aye_carumba.wav" type="audio/mpeg"></audio>').appendTo('#ttt_board');
     }
 
-    function play_sound() {
-      $('#ttt_sounds')[0].play();
+    function play_buzzer() {
+      $('#ttt_sounds_buzz')[0].play();
+    }
+    function play_yeay() {
+      $('#ttt_sounds_yeay')[0].play();
     }
 
     function init_page() {
@@ -29,6 +33,7 @@ $(function () {
       $.each(squares, function (i, value) {
         value.addClass('ttt_winner');
       });
+      play_yeay();
     }
 
     function check_for_winner() {
@@ -67,7 +72,7 @@ $(function () {
         check_for_winner();
       }
       else {
-        play_sound();
+        play_buzzer();
       }
     }
 
@@ -82,7 +87,7 @@ $(function () {
         take_turn(cell);
       }
       else {
-        play_sound();
+        play_buzzer();
       }
     });
 
