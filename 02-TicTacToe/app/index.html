@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Tic Tac Toe">
+    <meta name="author" content="https://github.com/stujo/">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <link href="./css/02_tic_tac_toe.css" media="all" rel="stylesheet"/>
+    <link href="./css/sticky_footer.css" media="all" rel="stylesheet"/>
+    <script src="./javascript/02_tic_tac_toe.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Tic-Tac-Toe</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Game</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+
+    <div class="text-center">
+        <button class="btn btn-default" id="ttt_reset">Reset</button>
+    </div>
+
+    <div id="ttt_board">
+        <div id="ttt_row_1" class="row ttt_row">
+            <div class="col-xs-4 ttt_cell" id="ttt_1_1">
+                <div class="ttt_marker"></div>
+            </div>
+            <div class="col-xs-4 ttt_cell" id="ttt_1_2">
+                <div class="ttt_marker"></div>
+            </div>
+            <div class="col-xs-4 ttt_cell" id="ttt_1_3">
+                <div class="ttt_marker"></div>
+            </div>
+        </div>
+        <div id="ttt_row_2" class="row ttt_row">
+            <div class="col-xs-4 ttt_cell" id="ttt_2_1">
+                <div class="ttt_marker"></div>
+            </div>
+            <div class="col-xs-4 ttt_cell" id="ttt_2_2">
+                <div class="ttt_marker"></div>
+            </div>
+            <div class="col-xs-4 ttt_cell" id="ttt_2_3">
+                <div class="ttt_marker"></div>
+            </div>
+        </div>
+        <div id="ttt_row_3" class="row ttt_row">
+            <div class="col-xs-4 ttt_cell" id="ttt_3_1">
+                <div class="ttt_marker"></div>
+            </div>
+            <div class="col-xs-4 ttt_cell" id="ttt_3_2">
+                <div class="ttt_marker"></div>
+            </div>
+            <div class="col-xs-4 ttt_cell" id="ttt_3_3">
+                <div class="ttt_marker"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div class="container">
+        <p class="text-muted"><a href="https://github.com/stujo/javascript_notes/issues">Got a bug or a suggestion for
+            an improvement?</a></p>
+    </div>
+</div>
+
+</body>
+</html>

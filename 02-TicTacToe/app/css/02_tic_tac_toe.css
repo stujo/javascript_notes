@@ -1,0 +1,40 @@
+body
+{
+    padding-top: 50px;
+
+}
+
+#ttt_board
+{
+    margin: 10px;
+}
+
+.ttt_row
+{
+    background-color: #333333;
+
+}
+
+.ttt_cell
+{
+    padding: 5px;
+}
+
+.ttt_cell .ttt_marker
+{
+    min-height: 80px;
+    min-width: 80px;
+    background-color: #FFFFFF;
+}
+
+.ttt_cell.ttt_x .ttt_marker
+{
+    background-color: #DDFFDD;
+
+}
+
+.ttt_cell.ttt_o .ttt_marker
+{
+    background-color: #FFDDDD;
+
+}
