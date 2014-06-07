@@ -3,7 +3,8 @@
 $(function () {
 
     function install_sounds() {
-      $('<audio id="ttt_sounds"><source src="notify.mp3" type="audio/mpeg"></audio>').appendTo('#ttt_board');
+      // Sounds from: http://www.soundjay.com/beep-sounds-1.html
+      $('<audio id="ttt_sounds"><source src="sounds/beep-03.mp3" type="audio/mpeg"></audio>').appendTo('#ttt_board');
     }
 
     function play_sound() {
@@ -20,9 +21,6 @@ $(function () {
       $('#ttt_board .ttt_cell').addClass('ttt_free').removeClass('ttt_x').removeClass('ttt_o').data('ttt_player',null);
       var board  = $('#ttt_board');
       board.data('ttt_turn', 'o');
-
-      $("#ttt_sounds").html('<embed src="" hidden="true" autostart="false" loop="false" />');
-
     }
 
     function take_turn(cell)
@@ -37,9 +35,16 @@ $(function () {
       reset_board();
     });
 
-    $('#ttt_board').on('click', '.ttt_cell.ttt_free', function (event) {
-       var cell = $(this);
-      take_turn(cell);
+    $('#ttt_board').on('click', '.ttt_cell', function (event) {
+      var cell = $(this);
+
+      if(cell.hasClass('ttt_free')) {
+        take_turn(cell);
+      }
+      else
+      {
+        play_sound();
+      }
     });
 
     init_page();

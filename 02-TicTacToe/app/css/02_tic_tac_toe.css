@@ -1,40 +1,49 @@
-body
-{
+body {
     padding-top: 50px;
 
 }
 
-#ttt_board
-{
+#ttt_board {
     margin: 10px;
+    height: 400px;
 }
 
-.ttt_row
-{
+.ttt_row {
     background-color: #333333;
 
 }
 
-.ttt_cell
-{
+.ttt_cell {
     padding: 5px;
 }
 
-.ttt_cell .ttt_marker
-{
-    min-height: 80px;
+.ttt_cell .ttt_marker {
+    min-height: 100px;
     min-width: 80px;
     background-color: #FFFFFF;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 100px;
+    padding-top: 20px;
+    line-height: 60px;
+    vertical-align: middle;
 }
 
-.ttt_cell.ttt_x .ttt_marker
-{
+.ttt_cell.ttt_x .ttt_marker {
     background-color: #DDFFDD;
 
 }
 
-.ttt_cell.ttt_o .ttt_marker
-{
+.ttt_cell.ttt_o .ttt_marker {
     background-color: #FFDDDD;
 
+}
+
+.ttt_o .ttt_marker:before {
+    content: "O";
+}
+
+.ttt_x .ttt_marker:before {
+    content: "X";
 }
