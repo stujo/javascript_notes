@@ -9,12 +9,16 @@ body {
 }
 
 .ttt_row {
-    background-color: #333333;
+    background-color: #DDDDDD;
 
 }
 
 .ttt_cell {
     padding: 5px;
+}
+
+.ttt_cell.ttt_winner{
+    background-color: #9999FF;
 }
 
 .ttt_cell .ttt_marker {
