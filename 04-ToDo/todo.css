@@ -6,7 +6,7 @@ body {
     margin: 0px auto;
     width: 70%;
     background-color: palegoldenrod;
-        min-height: 640px;
+    min-height: 640px;
 }
 
 #todo_add_form {
@@ -22,9 +22,8 @@ body {
     padding: 5px;
 }
 
-
 #todo_add {
-    color:white;
+    color: white;
     padding: 5px;
     text-align: center;
     background: #7f8c8d;
@@ -35,10 +34,13 @@ body {
 
 #todo_list {
     font-size: 1.5em;
-    font-family: cursive;
     padding-left: 0px;
     margin-top: 0px;
     margin-bottom: 0px;
+}
+
+#todo_list .todo_label {
+    font-family: cursive;
 }
 
 #todo_list li {
@@ -47,17 +49,71 @@ body {
     border-bottom: 1px solid cornsilk;
 }
 
-#todo_list li.todo_done
-{
+#todo_list li.todo_done .todo_label {
     color: #888888;
     text-decoration: line-through;
 }
 
-
-#todo_list li.todo_important
-{
+#todo_list li.todo_important .todo_label {
     color: red;
     font-weight: bold;
 }
 
+#todo_list li .todo_delete {
+    float: right;
+    font-family: Helvetica;
+}
 
+#todo_list li .todo_delete:before {
+    content: 'X';
+}
+
+/* Form Validation Parsley */
+
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+    color: #468847;
+    background-color: #DFF0D8;
+    border: 1px solid #D6E9C6;
+}
+
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+    color: #B94A48;
+    background-color: #F2DEDE;
+    border: 1px solid #EED3D7;
+}
+
+.parsley-errors-list {
+    margin: 2px 0 3px 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: 0.8em;
+    line-height: 0.8em;
+    opacity: 0;
+    -moz-opacity: 0;
+    -webkit-opacity: 0;
+    background-color: #EEEEEE;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 3px;
+
+    transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    -ms-transition: all .3s ease-in-;
+    -moz-transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+}
+
+.parsley-errors-list.filled {
+    opacity: 1;
+}
+
+
+
+.parsley-errors-list li
+{
+    color: red;
+}

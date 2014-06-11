@@ -3,6 +3,7 @@
 <head>
     <title>ToDo jQuery 1.11</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="bower_components/parsleyjs/dist/parsley.js"></script>
     <script src="todo.js"></script>
     <link rel="stylesheet" href="todo.css">
 </head>
@@ -12,13 +13,18 @@
 
     <form id="todo_add_form">
         <label for="todo_title">ToDo</label>
-        <input type="text" id="todo_title" name="todo_title"/>
+        <input type="text" id="todo_title" data-parsley-minlength="2" required="true" name="todo_title"/>
         <button id="todo_add">Add!</button>
+        <div class="todo_form_error" id="todo_title_error"></div>
     </form>
+    <ul id="todo_sorters">
+        <li><a href="#" id="todo_sort_az">A-Z</a></li>
+        <li><a href="#" id="todo_sort_za">Z-A</a></li>
+    </ul>
     <ul id="todo_list">
-        <li>My First Todo</li>
-        <li class="todo_done">My First Todo</li>
-        <li class="todo_important">My First Todo</li>
+        <li><div class="todo_delete"></div><div class="todo_label">My First Todo</div></li>
+        <li class="todo_done"><div class="todo_delete"></div><div class="todo_label">My First Todo</div></li>
+        <li class="todo_important"><div class="todo_delete"></div><div class="todo_label">My First Todo</div></li>
     </ul>
 
 </div>
