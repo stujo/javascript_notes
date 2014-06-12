@@ -84,6 +84,8 @@ body {
     text-align: center;
     padding: 50px 10px;
     margin: 10px auto;
+    color: #777777;
+    font-size: 1.5em;
 }
 
 #todo_list_delete_all {
@@ -110,8 +112,8 @@ textarea.parsley-error {
 }
 
 .parsley-errors-list {
-    margin: 2px 0 3px 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     list-style-type: none;
     font-size: 0.8em;
     line-height: 0.8em;
@@ -119,8 +121,6 @@ textarea.parsley-error {
     -moz-opacity: 0;
     -webkit-opacity: 0;
     background-color: #EEEEEE;
-    padding: 5px;
-    margin: 5px;
     border-radius: 3px;
 
     transition: all .3s ease-in;
@@ -132,8 +132,10 @@ textarea.parsley-error {
 
 .parsley-errors-list.filled {
     opacity: 1;
+    margin: 3px;
 }
 
 .parsley-errors-list li {
     color: red;
+    padding: 3px;
 }
