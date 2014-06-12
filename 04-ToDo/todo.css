@@ -37,6 +37,8 @@ body {
     padding-left: 0px;
     margin-top: 0px;
     margin-bottom: 0px;
+    line-height: 48px;
+/ / Matches Icon Size
 }
 
 #todo_list .todo_label {
@@ -52,6 +54,7 @@ body {
 #todo_list li.todo_done .todo_label {
     color: #888888;
     text-decoration: line-through;
+    text-overflow: ellipsis;
 }
 
 #todo_list li.todo_important .todo_label {
@@ -61,11 +64,31 @@ body {
 
 #todo_list li .todo_delete {
     float: right;
-    font-family: Helvetica;
+    width: 48px;
+    height: 48px;
+    margin: 0px;
+    padding: 0px;
+    background: url('images/delete.png') transparent no-repeat center;
 }
 
-#todo_list li .todo_delete:before {
-    content: 'X';
+#todo_list_placeholder {
+    /* display: none; */
+    margin: 0px auto;
+    width: 80%;
+    text-align: center;
+}
+
+#todo_list_placeholder {
+    border-radius: 3px;
+    background: white;
+    text-align: center;
+    padding: 50px 10px;
+    margin: 10px auto;
+}
+
+#todo_list_delete_all {
+    text-align: center;
+    margin: 10px auto;
 }
 
 /* Form Validation Parsley */
@@ -111,9 +134,6 @@ textarea.parsley-error {
     opacity: 1;
 }
 
-
-
-.parsley-errors-list li
-{
+.parsley-errors-list li {
     color: red;
 }
