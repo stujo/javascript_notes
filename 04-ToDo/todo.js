@@ -32,7 +32,7 @@ $(document).ready(function () {
     }
   }
 
-  $('#todo_add_form').parsley(parsleyConfig);
+  var parsley = $('#todo_add_form').parsley(parsleyConfig);
 
   //Assign Submit Handler to Add Form After Parsley
   $("#todo_add_form").submit(function (event) {
@@ -45,6 +45,8 @@ $(document).ready(function () {
       $('#todo_list').append(todo);
 
       $('#todo_title').val('');
+
+      parsley.reset();
     }
 
     update_status_panels();

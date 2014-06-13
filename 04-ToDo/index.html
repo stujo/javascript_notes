@@ -13,7 +13,7 @@
 
     <form id="todo_add_form">
         <label for="todo_title">ToDo</label>
-        <input type="text" id="todo_title" data-parsley-minlength="2" required="true" name="todo_title"/>
+        <input type="text" id="todo_title" data-parsley-minlength="2" data-parsley-trigger="change" required="true" name="todo_title"/>
         <button id="todo_add">Add!</button>
         <div class="todo_form_error" id="todo_title_error"></div>
     </form>
