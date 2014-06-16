@@ -40,9 +40,10 @@ body {
 }
 
 .stujo_section .panel-heading {
+    background-image: none;
     background-color: #4875B3;
-    color: #666;
-    text-shadow: #444 0 1px 1px;
+    color: #eeeeee;
+    text-shadow: none;
     font-weight: bold;
     font-size: 2em;
 }
@@ -54,42 +55,45 @@ body {
     }
 
     .stujo_section {
-        margin-top: 90px;
+        margin-top: 0px;
         margin-bottom: 1000px;
-        min-height: 530px;
         background-attachment: fixed;
     }
 
-    .stujo_section ul.stujo_bullets > li, .stujo_section p {
+    .stujo_section .panel-body {
+        min-height: 530px;
+    }
+
+    .stujo_section .stujo_bullets > li, .stujo_section p {
         font-weight: bold;
         font-size: 2em;
     }
 
-    .stujo_section ul.stujo_bullets, .stujo_section .panel-body > p {
+    .stujo_section .stujo_bullets, .stujo_section .panel-body > p {
         margin-left: 30px;
     }
 
     .stujo_section .panel-body {
-        padding-top: 40px;
-        padding-bottom: 20px;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding: 10px;
     }
 }
 
 @media (max-width: 767px) {
     .stujo_section {
-        margin-top: 60px;
+        margin-top: 0px;
         margin-bottom: 640px;
+    }
+
+    .stujo_section .panel-body {
         min-height: 400px;
     }
 
-    .stujo_section ul.stujo_bullets > li, .stujo_section p {
+    .stujo_section .stujo_bullets > li, .stujo_section p {
         font-weight: bold;
         font-size: 1.2em;
     }
 
-    .stujo_section ul.stujo_bullets, .stujo_section .panel-body > p {
+    .stujo_section .stujo_bullets, .stujo_section .panel-body > p {
         margin-left: 0px;
     }
 
@@ -98,6 +102,10 @@ body {
         padding-right: 5px;
     }
 }
+.stujo_bullets
+{
+  margin-top: 30px;
+}
 
 ul.sej_section_actions {
     width: 100%;
@@ -105,11 +113,8 @@ ul.sej_section_actions {
     clear: both;
     text-align: right;
     list-style: none;
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
     padding: 5px 20px 5px 0px;
-    margin: 0px;
+    margin: 20px 0px 0px 0px;
     border-top: 2px solid #4875B3;
     background-color: #ffffff;
 }
@@ -148,3 +153,12 @@ ul.stujo_info li a {
     max-height: 240px;
 }
 
+pre {
+    padding: 10px;
+    white-space: pre;
+    font-family: courier, monospace;
+    margin: 0px auto;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    background-color: #eeeeee;
+}

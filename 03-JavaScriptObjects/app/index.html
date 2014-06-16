@@ -70,13 +70,12 @@
             <div class="panel-heading">Agenda</div>
             <div class="panel-body">
                 <ul class="stujo_bullets">
-                    <li><a href="#objects" class="sej_section_jump">JavaScript Objects</a></li>
-                </ul>
-                <div class="col-sm-12">&nbsp;</div>
-                <ul class="sej_section_actions">
-                    <li><a href="#objects" class="sej_section_jump">Objects</a></li>
+                    <li><a href="#objects" class="sej_section_jump">JavaScript Object Literals</a></li>
                 </ul>
             </div>
+            <ul class="sej_section_actions">
+                <li><a href="#objects" class="sej_section_jump">Objects</a></li>
+            </ul>
         </div>
     </div>
 </div>
@@ -88,17 +87,135 @@
         <div class="panel panel-default stujo_section">
             <div class="panel-heading">Object Literals</div>
             <div class="panel-body">
+                <pre>
+var foo = {};
+var bar = {
+x: 5
+};
+</pre>
                 <ul class="stujo_bullets">
                     <li>Objects are key / value maps</li>
                     <li>Functions are Objects too</li>
                 </ul>
-                <ul class="sej_section_actions">
-                    <li><a href="#resources" class="sej_section_jump">Resources</a></li>
-                </ul>
             </div>
+            <ul class="sej_section_actions">
+                <li><a href="#new_operator" class="sej_section_jump">new operator</a></li>
+            </ul>
         </div>
     </div>
 </div>
+
+
+<a name="new_operator"></a>
+
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default stujo_section">
+            <div class="panel-heading">new operator</div>
+            <div class="panel-body">
+                <pre>
+function Foo(){
+    this.bar = function(){ console.log('bar'); }
+}
+var myFoo = new Foo();
+myFoo.bar();
+</pre>
+                <ol class="stujo_bullets">
+                    <li>A new object is created linked to Foo.prototype</li>
+                    <li>Foo Function is called with this set to the new object</li>
+                    <li>The new operator returns this object or if provided, the result of the Foo Function</li>
+                </ol>
+
+<pre>
+var myFooFromLiteral = {};
+var myFooFromPrototype = Object.create( Object.prototype );
+var myFooFromNewObject = new Object();
+</pre>
+
+            </div>
+            <ul class="sej_section_actions">
+                <li><a href="#prototype" class="sej_section_jump">Prototype</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<a name="prototype"></a>
+
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default stujo_section">
+            <div class="panel-heading">Prototype</div>
+            <div class="panel-body">
+                <pre>
+function Foo(){
+    this.bar = function(){ console.log('bar'); }
+}
+Foo.prototype.blap = function(){ console.log('blap'); }
+var myFoo = new Foo();
+myFoo.bar();
+myFoo.blap();
+Foo.prototype.boink = function(){ console.log('boink'); }
+myFoo.boink();
+</pre>
+                <ol class="stujo_bullets">
+                    <li>Once the function is defined the prototype can be accessed</li>
+                    <li>The prototype instance is shared and can be extended after the new call</li>
+                </ol>
+            </div>
+            <ul class="sej_section_actions">
+                <li><a href="#delete" class="sej_section_jump">delete operator</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<a name="delete"></a>
+
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default stujo_section">
+            <div class="panel-heading">delete operator</div>
+            <div class="panel-body">
+                <pre>
+function Foo(){
+    this.bar = function(){ console.log('bar'); }
+}
+Foo.prototype.blap = function(){ console.log('blap'); }
+
+var myFoo = new Foo();
+myFoo.bar();
+
+delete myFoo.bar
+console.log('bar deleted');
+
+myFoo.bar(); //->TypeError: Object #Foo has no method 'bar'
+
+var myFoo2 = new Foo();
+myFoo2.blap();
+
+delete Foo.prototype.blap
+console.log('blap deleted');
+
+myFoo2.blap(); // TypeError: Object #
+Foo has no method 'blap'
+myFoo2.bar(); // Still works
+myFoo.blap(); // Doesn't work either - TypeError: Object #
+Foo has no method 'blap'
+</pre>
+                <ol class="stujo_bullets">
+                    <li>delete can be used to remove attributes and functions</li>
+                    <li>Can be used on both the prototype and object instances</li>
+                </ol>
+            </div>
+            <ul class="sej_section_actions">
+                <li><a href="#resources" class="sej_section_jump">Resources</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 
 <a name="resources"></a>
 
@@ -111,6 +228,9 @@
                 <ul class="stujo_bullets">
                     <li><a href="https://www.codeschool.com/code_tv/javascript-objects">CodeSchool JavaScript
                         Objects</a>
+                    </li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new">MDN:
+                        JavaScript new</a>
                     </li>
                 </ul>
             </div>
