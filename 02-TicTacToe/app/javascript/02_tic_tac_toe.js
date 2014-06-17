@@ -29,13 +29,17 @@ $(function () {
       return {version: VERSION, turn: turn, data: data};
     }
 
+    function clear_local_storage() {
+      localStorage.removeItem(local_storage_key);
+    }
+
     function save_to_local_storage() {
-      localStorage[local_storage_key] = JSON.stringify(data_for_storage());
+      localStorage.setItem(local_storage_key, JSON.stringify(data_for_storage()));
     }
 
     function load_from_local_storage() {
-      var game = localStorage[local_storage_key];
-      return JSON.parse(game);
+      var game = localStorage.getItem(local_storage_key);
+      return game ? JSON.parse(game) : {};
     }
 
 
@@ -58,8 +62,7 @@ $(function () {
       reset_board(load_from_local_storage());
     }
 
-    function valid_game_data(data)
-    {
+    function valid_game_data(data) {
       return data && data.hasOwnProperty('version') && data['version'] == VERSION;
     }
 
@@ -87,7 +90,6 @@ $(function () {
         }
         check_for_winner();
       }
-
     }
 
     function show_winner(line, squares) {
