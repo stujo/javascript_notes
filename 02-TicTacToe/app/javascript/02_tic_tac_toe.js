@@ -121,12 +121,36 @@ $(function () {
       $.each(lines, function (key, squares) {
         if (squares[0].data('ttt_player')
           && (squares[0].data('ttt_player') == squares[1].data('ttt_player') && squares[1].data('ttt_player') == squares[2].data('ttt_player'))) {
-          return show_winner(key, squares);
+          show_winner(key, squares);
+          return true;
         }
       });
+      return false;
     }
 
-    function take_turn(cell) {
+    function cells(){
+      return [ $('#ttt_1_1'), $('#ttt_1_2'), $('#ttt_1_3'),
+                      $('#ttt_2_1'), $('#ttt_2_2'), $('#ttt_2_3'),
+                      $('#ttt_3_1'), $('#ttt_3_2'), $('#ttt_3_3') ];
+    }
+
+    function game_state(){
+        var game = cells().map(function(square){
+                        var played = square.data('ttt_player');
+                        return played ? played.toUpperCase() : '-';
+                      }).join("");
+
+        var player = $('#ttt_board').data('ttt_turn').toUpperCase();
+
+        return { game: game, player: player};
+    }
+
+    function get_suggestion(game_state, callback){
+      var url = "http://tttapi.herokuapp.com/api/v1/" + game_state.game + "/" + game_state.player;
+      $.getJSON(url).done(callback);
+    }
+
+    function take_turn(cell, automatic) {
       var board = $('#ttt_board');
 
       if (board.data('ttt_inprogress')) {
@@ -134,7 +158,19 @@ $(function () {
         cell.removeClass('ttt_free').addClass('ttt_' + turn).data('ttt_player', turn);
         board.data('ttt_turn', turn == 'o' ? 'x' : 'o');
 
-        check_for_winner();
+        if(!check_for_winner()){
+          if(!automatic){
+            var state_check = game_state();
+            get_suggestion(state_check, function(data){
+              if(state_check.game == game_state().game){
+                if("number" == typeof data.recommendation){
+                  console.log(data.recommendation);
+                  take_turn(cells()[data.recommendation], true);
+                }
+              }
+            });
+          }
+        }
       }
       else {
         play_buzzer();
@@ -150,7 +186,7 @@ $(function () {
       var cell = $(this);
 
       if (cell.hasClass('ttt_free')) {
-        take_turn(cell);
+        take_turn(cell, false);
       }
       else {
         play_buzzer();
